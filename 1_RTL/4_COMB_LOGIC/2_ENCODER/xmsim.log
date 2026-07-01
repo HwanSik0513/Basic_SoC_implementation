@@ -1,0 +1,34 @@
+xmsim(64): 22.03-s012: (c) Copyright 1995-2023 Cadence Design Systems, Inc.
+TOOL:	xmsim(64)	22.03-s012: Started on Jul 01, 2026 at 01:45:37 KST
+xmsim
+    -MESS
+    tb_interrupt_controller
+    -gui
+
+xmsim: *W,NOMTDGUI: Multi-Threaded Dumping is disabled for interactive debug mode.
+
+-------------------------------------
+Relinquished control to SimVision...
+xcelium> 
+xcelium> database -open waves -into waves.shm -default
+Created default SHM database waves
+xcelium> probe -create -shm tb_interrupt_controller.o_req tb_interrupt_controller.i_ack tb_interrupt_controller.i_int tb_interrupt_controller.o_id
+Created probe 1
+xcelium> run
+Time = 0 | i_int=00000000 | i_ack=0 | o_id = 000 | o_req=0
+Time = 10000 | i_int=00000001 | i_ack=0 | o_id = 000 | o_req=1
+Time = 20000 | i_int=00100000 | i_ack=0 | o_id = 101 | o_req=1
+Time = 30000 | i_int=10000000 | i_ack=0 | o_id = 111 | o_req=1
+Time = 40000 | i_int=10000000 | i_ack=1 | o_id = 000 | o_req=0
+Time = 50000 | i_int=10000000 | i_ack=0 | o_id = 111 | o_req=1
+Time = 60000 | i_int=01000010 | i_ack=0 | o_id = 110 | o_req=1
+Time = 70000 | i_int=01000010 | i_ack=1 | o_id = 000 | o_req=0
+Time = 80000 | i_int=01000010 | i_ack=0 | o_id = 110 | o_req=1
+Time = 90000 | i_int=00000000 | i_ack=0 | o_id = 000 | o_req=0
+Simulation complete via $finish(1) at time 110 NS + 0
+./tb_Interrupt_Controller.v:42 #20 $finish;
+xcelium> run
+xmsim: *E,RNFNSH: Cannot continue simulation due to a previous $finish.
+xcelium> ^C
+xcelium> exit
+TOOL:	xmsim(64)	22.03-s012: Exiting on Jul 01, 2026 at 02:13:26 KST  (total: 00:27:49)

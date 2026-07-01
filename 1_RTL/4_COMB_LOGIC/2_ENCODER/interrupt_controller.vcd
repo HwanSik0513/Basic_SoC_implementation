@@ -1,0 +1,111 @@
+$date
+    Jul  1, 2026  01:46:05
+$end
+$version
+    TOOL:	xmsim(64)	22.03-s012
+$end
+$timescale
+    1 ps
+$end
+
+$scope module tb_interrupt_controller $end
+$var reg       8 !    i_int [7:0] $end
+$var reg       1 "    i_ack $end
+$var wire      3 #    o_id [2:0] $end
+$var wire      1 $    o_req  $end
+
+$scope module uut $end
+$var wire      8 %    i_int [7:0] $end
+$var wire      1 &    i_ack  $end
+$var reg       3 '    o_id [2:0] $end
+$var reg       1 (    o_req $end
+$var reg       8 )    r_active_int [7:0] $end
+$upscope $end
+
+$upscope $end
+
+$enddefinitions $end
+$dumpvars
+b0 !
+0"
+b0 #
+0$
+b0 %
+0&
+b0 '
+0(
+b0 )
+$end
+#10000
+b1 !
+b1 %
+b1 )
+1(
+1$
+#20000
+b100000 !
+b100000 %
+0(
+b100000 )
+b101 '
+1(
+b101 #
+#30000
+b10000000 !
+b10000000 %
+b0 '
+0(
+b10000000 )
+b111 '
+1(
+b111 #
+#40000
+1"
+1&
+b0 '
+0(
+b0 )
+0$
+b0 #
+#50000
+0"
+0&
+b10000000 )
+b111 '
+1(
+1$
+b111 #
+#60000
+b1000010 !
+b1000010 %
+b0 '
+0(
+b1000010 )
+b110 '
+1(
+b110 #
+#70000
+1"
+1&
+b0 '
+0(
+b0 )
+0$
+b0 #
+#80000
+0"
+0&
+b1000010 )
+b110 '
+1(
+1$
+b110 #
+#90000
+b0 !
+b0 %
+b0 '
+0(
+b0 )
+0$
+b0 #
+#110000

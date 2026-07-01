@@ -1,6 +1,6 @@
 clean:
 	rm -rf cds.lib hdl.var *.lib waves.shm *.log *.key *.dsn *.trn *.vcd \
-	.simvision .symbol* xcelium.d
+	.simvision .symbol* xceilium.d
 
 set:
 	touch cds.lib hdl.var
@@ -11,10 +11,10 @@ set:
 compile:
 	xmvlog -MESS -linedebug ./*v
 
-elab: 
-	xmelab -MESS -access rwc tb_pipeline
+elab:
+	xmelab -MESS -access rwc tb_comparator
 
-sim: 
-	xmsim -MESS tb_pipeline -gui
+sim:
+	xmsim -MESS tb_comparator -gui
 
 all: clean set compile elab sim
