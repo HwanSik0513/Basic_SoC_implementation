@@ -1,0 +1,260 @@
+
+#
+# Preferences
+#
+preferences set plugin-enable-svdatabrowser-new 1
+preferences set toolbar-SimControl-WaveWindow {
+  usual
+  position -row 1 -pos 2
+}
+preferences set toolbar-CursorControl-WaveWindow {
+  usual
+  position -row 1 -pos 1
+}
+preferences set toolbar-TimeSearch-WaveWindow {
+  usual
+  position -row 2 -pos 0
+}
+preferences set toolbar-txe_waveform_toggle-WaveWindow {
+  usual
+  position -pos 1
+}
+preferences set plugin-enable-groupscope 0
+preferences set plugin-enable-interleaveandcompare 0
+preferences set plugin-enable-waveformfrequencyplot 0
+preferences set toolbar-Windows-WaveWindow {
+  usual
+  position -pos 2
+}
+preferences set toolbar-WaveZoom-WaveWindow {
+  usual
+  position -row 1 -pos 3
+}
+
+#
+# Mnemonic Maps
+#
+mmap new  -reuse -name {Boolean as Logic} -radix %b -contents {{%c=FALSE -edgepriority 1 -shape low}
+{%c=TRUE -edgepriority 1 -shape high}}
+mmap new  -reuse -name {Example Map} -radix %x -contents {{%b=11???? -bgcolor orange -label REG:%x -linecolor yellow -shape bus}
+{%x=1F -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=2C -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=* -label %x -linecolor gray -shape bus}}
+
+#
+# Design Browser windows
+#
+if {[catch {window new WatchList -name "Design Browser 1" -geometry 847x656+772+727}] != ""} {
+    window geometry "Design Browser 1" 847x656+772+727
+}
+window target "Design Browser 1" on
+browser using {Design Browser 1}
+browser set -scope  simulator::tb_FSM3.DUT 
+browser set \
+    -signalsort name
+browser yview see  simulator::tb_FSM3.DUT 
+browser timecontrol set -lock 0
+
+#
+# Waveform windows
+#
+if {[catch {window new WaveWindow -name "Waveform 2" -geometry 1825x677+732+31}] != ""} {
+    window geometry "Waveform 2" 1825x677+732+31
+}
+window target "Waveform 2" on
+waveform using {Waveform 2}
+waveform sidebar visibility partial
+waveform set \
+    -primarycursor TimeA \
+    -signalnames name \
+    -signalwidth 175 \
+    -units ps \
+    -valuewidth 75
+waveform baseline set -time 0
+
+set id [waveform add -signals  {
+	simulator::tb_FSM3.DUT.clk
+	} ]
+set id [waveform add -signals  {
+	simulator::tb_FSM3.DUT.rst_n
+	} ]
+set id [waveform add -signals  {
+	simulator::tb_FSM3.DUT.DLY
+	} ]
+waveform hierarchy expand $id
+set id [waveform add -signals  {
+	simulator::tb_FSM3.DUT.DONE
+	} ]
+waveform hierarchy expand $id
+set id [waveform add -signals  {
+	simulator::tb_FSM3.DUT.IDLE
+	} ]
+waveform hierarchy expand $id
+set id [waveform add -signals  {
+	simulator::tb_FSM3.DUT.READ
+	} ]
+waveform hierarchy expand $id
+set id [waveform add -signals  {
+	simulator::tb_FSM3.DUT.ds
+	} ]
+set id [waveform add -signals  {
+	simulator::tb_FSM3.DUT.ws
+	} ]
+set id [waveform add -signals  {
+	simulator::tb_FSM3.DUT.go
+	} ]
+set id [waveform add -signals  {
+	{simulator::tb_FSM3.DUT.next[1:0]}
+	} ]
+waveform hierarchy expand $id
+set id [waveform add -signals  {
+	simulator::tb_FSM3.DUT.rd
+	} ]
+set id [waveform add -signals  {
+	{simulator::tb_FSM3.DUT.state[1:0]}
+	} ]
+waveform hierarchy expand $id
+
+waveform xview limits 0 500000ps
+
+#
+# Waveform Window Links
+#
+
+#
+# Source Browser windows
+#
+if {[catch {window new SrcBrowser -name "Source Browser 1" -geometry 700x778+0+0}] != ""} {
+    window geometry "Source Browser 1" 700x778+0+0
+}
+window target "Source Browser 1" on
+srcbrowser using {Source Browser 1}
+srcbrowser set \
+    -primarycursor TimeA \
+    -units ps \
+    -radix default \
+    -showstrength 0 \
+    -showcallstack 0 \
+    -displayvalues 0
+
+srcbrowser show -scope tb_FSM3.DUT -file /home/hah003/Basic_SoC_implementation/1_RTL/6_FSM/1_MOORE_MACHINE/3_reg_output/FSM3.v -line 33
+
+srcbrowser sidebar visibility partial
+
+#
+# Schematic Tracer windows
+#
+if {[catch {window new SchematicWindow -name "Schematic Tracer 2" -geometry 936x656+1619+727}] != ""} {
+    window geometry "Schematic Tracer 2" 936x656+1619+727
+}
+window target "Schematic Tracer 2" on
+schematic using "Schematic Tracer 2"
+schematic sidebar visibility partial
+schematic set \
+    -radix default \
+    -fullsignalname 0 \
+    -showvalue 1 \
+    -showstrength 0 \
+    -showgrey 0 \
+    -tracemode Single \
+    -showrtl 1 \
+    -showcells 1 \
+    -showcellpins 0
+schematic timecontrol set -lock 0
+schematic restore -state {# String saved with Nlview 6.7r2  2017-11-02 bk=1.4313 VDI=40 GEI=35 GUI=TK:8.6 non-TLS,tclcompat
+#  -string
+# non-default properties - (restore without -noprops)
+property attrcolor #40e0d0
+property attrfontsize 10
+property boxmaxwidth 400
+property boxmingap 40
+property boxminheight 40
+property boxminwidth 100
+property buscolor #00ff00
+property createnetattrdsp 2
+property fillcolor1 #000000
+property fillcolor2 #000000
+property gatecellname 1
+property netcolor #00ff00
+property objecthighlight0 #ff00aa
+property objecthighlight1 #ff00aa
+property objecthighlight2 #00ff00
+property objecthighlight3 #ffff00
+property objecthighlight9 #ffffaf
+property pinattrmax 200
+property selectionappearance 2
+property selectioncolor #ffffaf
+property sheetheight 0
+property sheetwidth 0
+property showhierpinname 1
+property showinvisibles 1
+property showmarks 1
+property showpgtype 1
+#
+module new module {}
+load symbol DAI_SOURCE_IN {} DEF port 0 input -loc -14 0 0 0 pinattrdsp @name -cr -2 -5 8i attrdsp @cell -ll -10 16 10 path 0 -6 9 -6 12 -3 12 6 0 6 0 -6 path 12 -3 9 -3 9 -6 path 2 -3 6 -3 path 2 0 10 0 path 2 3 10 3
+load symbol DAI_SOURCE_OUT {} DEF port 0 output -loc 26 0 12 0 pinattrdsp @name -cl 30 -5 8i attrdsp @cell -ll -10 16 10 path 0 -6 9 -6 12 -3 12 6 0 6 0 -6 path 12 -3 9 -3 9 -6 path 2 -3 6 -3 path 2 0 10 0 path 2 3 10 3
+#
+module new root {} -nosplit -symlib /tools/cadence/XCELIUM2203/tools/dvgui/ams/symlib/analogLib.sym
+load symbol {FSM3 work_lib(module)} {} HIERBOX pin 0 input.left pin 1 input.left pin 2 input.left pin 3 input.left pin 4 output.right pin 5 output.right fillcolor 2
+load symbol rtl_Always_6 {} GEN pin 8 input.left pin 13 input.left pinBus 0 output.right 2 0 1 pinBus 1 input.left 2 2 3 pinBus 2 input.left 2 4 5 pinBus 3 input.left 2 6 7 pinBus 4 input.left 2 9 10 pinBus 5 input.left 2 11 12 fillcolor 1
+load symbol rtl_Always_5 {} GEN pin 6 input.left pin 7 input.left pinBus 0 input.left 2 0 1 pinBus 1 output.right 2 2 3 pinBus 2 input.left 2 4 5 fillcolor 1
+load symbol rtl_Always_7 {} GEN pin 0 output.right pin 1 output.right pin 4 input.left pin 5 input.left pinBus 0 input.left 2 2 3 fillcolor 1
+load inst simulator::tb_FSM3,DUT {FSM3 work_lib(module)} {} -attr @name DUT -attr @color #00ffff -pinAttr 0 @name clk= -pinAttr 0 @color #ffffff -pinAttr 1 @name rst_n= -pinAttr 1 @color #ffffff -pinAttr 2 @name go= -pinAttr 2 @color #ffffff -pinAttr 3 @name ws= -pinAttr 3 @color #ffffff -pinAttr 4 @name rd= -pinAttr 4 @color #ffffff -pinAttr 5 @name ds= -pinAttr 5 @color #ffffff -hierPinAttr 0 @name clk -hierPinAttr 1 @name rst_n -hierPinAttr 2 @name go -hierPinAttr 3 @name ws -hierPinAttr 4 @name rd -hierPinAttr 5 @name ds -pg 1 -lvl 1 -y 30
+load inst simulator::tb_FSM3,DUT,Always_0 rtl_Always_5 {} -hier simulator::tb_FSM3,DUT -attr @name Always_0 -attr @cell {} -attr @color #00ff00 -pinAttr 6 @name rst_n=1 -pinAttr 7 @name clk=1 -pinBusAttr 0 @name IDLE=00 -pinBusAttr 1 @name {state[1:0]=0} -pinBusAttr 2 @name {next[1:0]=0} -pg 1 -lvl 1 -y 90
+load inst simulator::tb_FSM3,DUT,Always_1 rtl_Always_6 {} -hier simulator::tb_FSM3,DUT -attr @name Always_1 -attr @cell {} -attr @color #00ff00 -pinAttr 8 @name go=0 -pinAttr 13 @name ws=0 -pinBusAttr 0 @name {next[1:0]=0} -pinBusAttr 1 @name {state[1:0]=0} -pinBusAttr 2 @name READ=01 -pinBusAttr 3 @name IDLE=00 -pinBusAttr 4 @name DLY=10 -pinBusAttr 5 @name DONE=11 -pg 1 -lvl 2 -y 230
+load inst simulator::tb_FSM3,DUT,Always_2 rtl_Always_7 {} -hier simulator::tb_FSM3,DUT -attr @name Always_2 -attr @cell {} -attr @color #00ff00 -pinAttr 0 @name rd=0 -pinAttr 1 @name ds=0 -pinAttr 4 @name rst_n=1 -pinAttr 5 @name clk=1 -pinBusAttr 0 @name {next[1:0]=0} -pg 1 -lvl 3 -y 320
+load net {simulator::tb_FSM3,DUT,IDLE[0]} -attr @name {IDLE[0]} -attr @color #666666.1 -pin simulator::tb_FSM3,DUT,Always_0 1 -pin simulator::tb_FSM3,DUT,Always_1 7
+load net {simulator::tb_FSM3,DUT,READ[1]} -attr @name {READ[1]} -attr @color #666666.1 -pin simulator::tb_FSM3,DUT,Always_1 4
+load net simulator::tb_FSM3,DUT,ds -attr @name ds -attr @color #666666.1 -hierPin simulator::tb_FSM3,DUT 5 -pin simulator::tb_FSM3,DUT,Always_2 1
+netloc simulator::tb_FSM3,DUT,ds 1 3 1 NJ
+load net simulator::tb_FSM3,DUT,clk -attr @name clk -attr @color #666666.1 -hierPin simulator::tb_FSM3,DUT 0 -pin simulator::tb_FSM3,DUT,Always_0 7 -pin simulator::tb_FSM3,DUT,Always_2 5
+netloc simulator::tb_FSM3,DUT,clk 1 0 3 100 320 NJ 320 NJ
+load net {simulator::tb_FSM3,DUT,READ[0]} -attr @name {READ[0]} -attr @color #666666.1 -pin simulator::tb_FSM3,DUT,Always_1 5
+load net {simulator::tb_FSM3,DUT,DONE[1]} -attr @name {DONE[1]} -attr @color #666666.1 -pin simulator::tb_FSM3,DUT,Always_1 11
+load net {simulator::tb_FSM3,DUT,IDLE[1]} -attr @name {IDLE[1]} -attr @color #666666.1 -pin simulator::tb_FSM3,DUT,Always_0 0 -pin simulator::tb_FSM3,DUT,Always_1 6
+load net {simulator::tb_FSM3,DUT,state[0]} -attr @name {state[0]} -attr @color #666666.1 -pin simulator::tb_FSM3,DUT,Always_0 3 -pin simulator::tb_FSM3,DUT,Always_1 3
+load net {simulator::tb_FSM3,DUT,DLY[0]} -attr @name {DLY[0]} -attr @color #666666.1 -pin simulator::tb_FSM3,DUT,Always_1 10
+load net {simulator::tb_FSM3,DUT,DONE[0]} -attr @name {DONE[0]} -attr @color #666666.1 -pin simulator::tb_FSM3,DUT,Always_1 12
+load net {simulator::tb_FSM3,DUT,next[1]} -attr @name {next[1]} -attr @color #666666.1 -pin simulator::tb_FSM3,DUT,Always_0 4 -pin simulator::tb_FSM3,DUT,Always_1 0 -pin simulator::tb_FSM3,DUT,Always_2 2
+load net simulator::tb_FSM3,DUT,go -attr @name go -attr @color #666666.1 -hierPin simulator::tb_FSM3,DUT 2 -pin simulator::tb_FSM3,DUT,Always_1 8
+netloc simulator::tb_FSM3,DUT,go 1 0 2 NJ 170 NJ
+load net {simulator::tb_FSM3,DUT,next[0]} -attr @name {next[0]} -attr @color #666666.1 -pin simulator::tb_FSM3,DUT,Always_0 5 -pin simulator::tb_FSM3,DUT,Always_1 1 -pin simulator::tb_FSM3,DUT,Always_2 3
+load net simulator::tb_FSM3,DUT,rd -attr @name rd -attr @color #666666.1 -hierPin simulator::tb_FSM3,DUT 4 -pin simulator::tb_FSM3,DUT,Always_2 0
+netloc simulator::tb_FSM3,DUT,rd 1 3 1 NJ
+load net {simulator::tb_FSM3,DUT,DLY[1]} -attr @name {DLY[1]} -attr @color #666666.1 -pin simulator::tb_FSM3,DUT,Always_1 9
+load net {simulator::tb_FSM3,DUT,state[1]} -attr @name {state[1]} -attr @color #666666.1 -pin simulator::tb_FSM3,DUT,Always_0 2 -pin simulator::tb_FSM3,DUT,Always_1 2
+load net simulator::tb_FSM3,DUT,ws -attr @name ws -attr @color #666666.1 -hierPin simulator::tb_FSM3,DUT 3 -pin simulator::tb_FSM3,DUT,Always_1 13
+netloc simulator::tb_FSM3,DUT,ws 1 0 2 NJ 190 NJ
+load net simulator::tb_FSM3,DUT,rst_n -attr @name rst_n -attr @color #666666.1 -hierPin simulator::tb_FSM3,DUT 1 -pin simulator::tb_FSM3,DUT,Always_0 6 -pin simulator::tb_FSM3,DUT,Always_2 4
+netloc simulator::tb_FSM3,DUT,rst_n 1 0 3 120 150 450J 120 740
+load netBundle simulator::tb_FSM3,DUT,IDLE {[1:0]} -attr @name IDLE -attr @color #666666.1
+netbloc simulator::tb_FSM3,DUT,IDLE 1 0 2 140 250 NJ
+load netBundle simulator::tb_FSM3,DUT,DLY {[1:0]} -attr @name DLY -attr @color #666666.1
+netbloc simulator::tb_FSM3,DUT,DLY 1 1 1 N
+load netBundle simulator::tb_FSM3,DUT,READ {[1:0]} -attr @name READ -attr @color #666666.1
+netbloc simulator::tb_FSM3,DUT,READ 1 1 1 N
+load netBundle {simulator::tb_FSM3,DUT,state[1:0]} g2 -attr @name {state[1:0]} -attr @color #666666.1
+netbloc {simulator::tb_FSM3,DUT,state[1:0]} 1 1 1 430
+load netBundle {simulator::tb_FSM3,DUT,next[1:0]} g2 -attr @name {next[1:0]} -attr @color #666666.1
+netbloc {simulator::tb_FSM3,DUT,next[1:0]} 1 0 3 160 340 NJ 340 720
+load netBundle simulator::tb_FSM3,DUT,DONE {[1:0]} -attr @name DONE -attr @color #666666.1
+netbloc simulator::tb_FSM3,DUT,DONE 1 1 1 N
+levelinfo -pg 1 0 50 1000 -top 0 -bot 390
+levelinfo -hier simulator::tb_FSM3,DUT * 190 480 770 *
+show
+fullfit
+#
+# initialize ictrl to current module root {}
+ictrl init -bulk {} ,
+}
+
+#
+# Console windows
+#
+console set -windowname Console
+window geometry Console 730x250+0+0
+
+#
+# Layout selection
+#

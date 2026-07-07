@@ -8,7 +8,7 @@ echo "define WORK work.lib" >> ./hdl.var
 xmvlog -MESS -linedebug ./*v
 
 # Elaborate compiled sources
-xmelab -MESS -access rwc tb_GPIO_MUX
+xmelab -MESS -access rwc tb_bidirectional_bus_driver
 
 # run simulation in CLI mode
-xmsim -MESS tb_GPIO_MUX -gui
+xmsim -MESS tb_bidirectional_bus_driver -gui

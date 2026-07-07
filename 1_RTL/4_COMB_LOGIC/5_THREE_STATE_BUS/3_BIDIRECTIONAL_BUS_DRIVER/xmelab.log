@@ -1,0 +1,34 @@
+xmelab(64): 22.03-s012: (c) Copyright 1995-2023 Cadence Design Systems, Inc.
+TOOL:	xmelab(64)	22.03-s012: Started on Jul 02, 2026 at 00:18:46 KST
+xmelab
+    -MESS
+    -access rwc
+    tb_bidirectional_bus_driver
+
+	Elaborating the design hierarchy:
+		Caching library 'work_lib' ....... Done
+	.i_send		(i_send	         ),
+	       		      |
+xmelab: *W,CUVMPW (./tb_bidirectional_bus_driver.v,14|16): port sizes differ in port connection(1/8) for the instance(tb_bidirectional_bus_driver) .
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		work_lib.bidirectional_bus_driver:module <0x767339b5>
+			streams:   2, words:  1174
+		work_lib.tb_bidirectional_bus_driver:module <0x49dd1269>
+			streams:   6, words:  8789
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                 Instances  Unique
+		Modules:                 2       2
+		Resolved nets:           0       1
+		Registers:               5       5
+		Scalar wires:            1       -
+		Vectored wires:          6       -
+		Always blocks:           1       1
+		Initial blocks:          1       1
+		Cont. assignments:       2       2
+		Pseudo assignments:      3       3
+		Simulation timescale:  1ps
+	Writing initial simulation snapshot: work_lib.tb_bidirectional_bus_driver:module
+TOOL:	xmelab(64)	22.03-s012: Exiting on Jul 02, 2026 at 00:18:46 KST  (total: 00:00:00)

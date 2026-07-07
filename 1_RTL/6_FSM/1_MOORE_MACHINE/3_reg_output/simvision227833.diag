@@ -1,0 +1,130 @@
+*** Message Type: info ***
+When: Tue Jul 07 04:35:06 KST 2026
+SimVision started.
+Version: TOOL:  simvision(64)   22.03-s012
+User: hah003
+Host: localhost
+Platform: Linux/x86_64/3.10.0-1160.el7.x86_64
+Started: Tue Jul 07 04:35:06 KST 2026
+Command: /tools/cadence/XCELIUM2203/tools.lnx86/simvision/bin/64bit/simvision.exe -connect dc:localhost:54564 -64BIT
+Work Directory: /home/hah003/Basic_SoC_implementation/1_RTL/6_FSM/1_MOORE_MACHINE/3_reg_output
+ 
+*** Message Type: info ***
+When: Tue Jul 07 04:35:07 KST 2026
+Create browser window: "Design Browser 1"
+ 
+*** Message Type: info ***
+When: Tue Jul 07 04:35:11 KST 2026
+Create console window: "Console"
+ 
+*** Message Type: info ***
+When: Tue Jul 07 04:35:13 KST 2026
+Connect to Simulator
+      Design: tb_FSM3
+   Languages: verilog
+   Simulator: XM-Sim
+     Version: TOOL:    xmsim(64)       22.03-s012
+        User: hah003
+        Host: localhost
+Time Started: Tue Jul 07 04:35:05 KST 2026
+  Process ID: 227832
+   Directory: /home/hah003/Basic_SoC_implementation/1_RTL/6_FSM/1_MOORE_MACHINE/3_reg_output
+     Command: xmsim -MESS tb_FSM3 -gui
+
+ 
+*** Message Type: info ***
+When: Tue Jul 07 04:35:13 KST 2026
+Create utility window: "Properties"
+ 
+*** Message Type: info ***
+When: Tue Jul 07 04:35:20 KST 2026
+Create schematic window: "Schematic Tracer 1"
+ 
+*** Message Type: info ***
+When: Tue Jul 07 04:35:47 KST 2026
+Create waveform window: "Waveform 1"
+ 
+*** Message Type: info ***
+When: Tue Jul 07 04:45:32 KST 2026
+Create source window: "Source Browser 1"
+ 
+*** Message Type: info ***
+When: Tue Jul 07 04:45:35 KST 2026
+Delete waveform window: "Waveform 1"
+ 
+*** Message Type: error ***
+When: Tue Jul 07 04:45:38 KST 2026
+invalid command name "::timeaxis6"
+    while executing
+"$_timeaxis convert t2exp $time"
+    (method "::WaveWindow::seeTime" body line 2)
+    invoked from within
+"seeTime [$itk_option(-markerdata) marker cget  $itk_option(-markerprimary) -time]"
+    (method "::WaveWindow::_doGotoCause" body line 59)
+    invoked from within
+"_doGotoCause $cnode"
+    ("@goto-cause" arm line 2)
+    invoked from within
+"switch -glob -- $dclickpref {
+       @no-action {
+               # Do nothing
+       }
+            @goto-cause {
+                _doGotoCause $cnode
+            }
+           ..."
+    (method "::WaveWindow::_moveCursor" body line 337)
+    invoked from within
+"::.waveWindow0 _moveCursor cursor 838 382 -double"
+    (in namespace inscope "::WaveWindow" script line 1)
+    invoked from within
+"namespace inscope ::WaveWindow {::.waveWindow0 _moveCursor cursor 838 382 -double}"
+    (command bound to event)
+ 
+*** Message Type: info ***
+When: Tue Jul 07 04:54:40 KST 2026
+Delete schematic window: "Schematic Tracer 1"
+ 
+*** Message Type: info ***
+When: Tue Jul 07 04:54:43 KST 2026
+Create schematic window: "Schematic Tracer 2"
+ 
+*** Message Type: info ***
+When: Tue Jul 07 04:54:55 KST 2026
+Create waveform window: "Waveform 2"
+ 
+*** Message Type: info ***
+When: Tue Jul 07 05:39:52 KST 2026
+Delete waveform window: "Waveform 2"
+ 
+*** Message Type: info ***
+When: Tue Jul 07 05:39:54 KST 2026
+Delete schematic window: "Schematic Tracer 2"
+ 
+*** Message Type: info ***
+When: Tue Jul 07 05:39:54 KST 2026
+Delete browser window: "Design Browser 1"
+ 
+*** Message Type: info ***
+When: Tue Jul 07 05:39:58 KST 2026
+Delete source window: "Source Browser 1"
+ 
+*** Message Type: info ***
+When: Tue Jul 07 05:40:01 KST 2026
+Exit XM-Sim: user
+      Design: tb_FSM3
+   Languages: verilog
+   Simulator: XM-Sim
+     Version: TOOL:    xmsim(64)       22.03-s012
+        User: hah003
+        Host: localhost
+Time Started: Tue Jul 07 04:35:05 KST 2026
+  Process ID: 227832
+   Directory: /home/hah003/Basic_SoC_implementation/1_RTL/6_FSM/1_MOORE_MACHINE/3_reg_output
+     Command: xmsim -MESS tb_FSM3 -gui
+
+ 
+*** Message Type: info ***
+When: Tue Jul 07 05:40:01 KST 2026
+SimVision Exit.
+ 

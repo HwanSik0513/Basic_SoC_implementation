@@ -1,0 +1,29 @@
+xmelab(64): 22.03-s012: (c) Copyright 1995-2023 Cadence Design Systems, Inc.
+TOOL:	xmelab(64)	22.03-s012: Started on Jul 06, 2026 at 23:00:35 KST
+xmelab
+    -MESS
+    -access rwc
+    tb_shift_register_sipo
+
+	Elaborating the design hierarchy:
+		Caching library 'work_lib' ....... Done
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		work_lib.shift_register_sipo:module <0x10d903f4>
+			streams:   3, words:  1098
+		work_lib.tb_shift_register_sipo:module <0x04ca6d21>
+			streams:   7, words:  7607
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                 Instances  Unique
+		Modules:                 2       2
+		Registers:               6       6
+		Scalar wires:            3       -
+		Vectored wires:          1       -
+		Always blocks:           1       1
+		Initial blocks:          3       3
+		Pseudo assignments:      3       3
+		Simulation timescale:  1ps
+	Writing initial simulation snapshot: work_lib.tb_shift_register_sipo:module
+TOOL:	xmelab(64)	22.03-s012: Exiting on Jul 06, 2026 at 23:00:35 KST  (total: 00:00:00)
