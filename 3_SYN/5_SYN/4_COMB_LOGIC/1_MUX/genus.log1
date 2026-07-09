@@ -1,0 +1,60 @@
+Cadence Genus(TM) Synthesis Solution.
+Copyright 2024 Cadence Design Systems, Inc. All rights reserved worldwide.
+Cadence and the Cadence logo are registered trademarks and Genus is a trademark
+of Cadence Design Systems, Inc. in the United States and other countries.
+
+[02:39:45.163257] Configured Lic search path (22.01-s003): 5280@172.31.52.241
+
+Version: 22.17-s071_1, built Wed Sep 11 20:37:05 PDT 2024
+Options: -files my_syn.tcl 
+Date:    Wed Jul 08 02:39:45 2026
+Host:    kopo-seongnam (x86_64 w/Linux 3.10.0-1160.el7.x86_64) (20cores*80cpus*2physical cpus*Intel(R) Xeon(R) Gold 5218R CPU @ 2.10GHz 28160KB) (394624392KB)
+PID:     216812
+OS:      CentOS Linux release 7.9.2009 (Core)
+
+Checking out license: Genus_Synthesis
+[02:39:45.301681] Periodic Lic check successful
+[02:39:45.301689] Feature usage summary:
+[02:39:45.301689] Genus_Synthesis
+
+
+
+***********************************************************************************************************
+***********************************************************************************************************
+
+
+
+Finished executable startup (0 seconds elapsed).
+
+Loading tool scripts...
+Finished loading tool scripts (14 seconds elapsed).
+
+#@ Processing -files option
+@genus 1> source my_syn.tcl
+#@ Begin verbose source ./my_syn.tcl
+@file(my_syn.tcl) 1: set_db init_lib_search_path ../../1_LIB
+  Setting attribute of root '/': 'init_lib_search_path' = ../../1_LIB
+@file(my_syn.tcl) 2: set_db init_hdl_search_path ../../4_SAMPLE_RTL
+  Setting attribute of root '/': 'init_hdl_search_path' = ../../4_SAMPLE_RTL
+@file(my_syn.tcl) 4: read_libs slow_vdd1v0_basicCells.lib
+Error   : File error. [FILE-100] [::legacy::set_attribute]
+        : Cannot open file 'slow_vdd1v0_basicCells.lib'
+        : Make sure that the file is a readable regular file and has the specified name.
+Error   : A library file does not exist. [LBR-68] [::legacy::set_attribute]
+        : File 'slow_vdd1v0_basicCells.lib' could not be found. File '<none>' was the last file that was successfully read in.
+        : Make sure that the library file exists or check for a typo in the file name.
+Error   : The data value for this attribute is invalid. [TUI-24] [::legacy::set_attribute]
+        : The value '  { slow_vdd1v0_basicCells.lib } ' cannot be set for attribute 'library'.
+        : To see the usage/description for this attribute, type '::legacy::set_attribute -h <attr_name> *' (in legacy UI mode) or 'help * <attr_name> -detail' (in CUI mode).
+#@ End verbose source ./my_syn.tcl
+1
+Encountered problems processing file: my_syn.tcl
+WARNING: This version of the tool is 663 days old.
+@genus:root: 2> exit
+
+Lic Summary:
+[02:42:39.222451] Cdslmd servers: kopo-seongnam
+[02:42:39.222474] Feature usage summary:
+[02:42:39.222475] Genus_Synthesis
+
+Normal exit.

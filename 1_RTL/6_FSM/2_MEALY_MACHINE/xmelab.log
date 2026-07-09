@@ -1,0 +1,29 @@
+xmelab(64): 22.03-s012: (c) Copyright 1995-2023 Cadence Design Systems, Inc.
+TOOL:	xmelab(64)	22.03-s012: Started on Jul 07, 2026 at 19:42:40 KST
+xmelab
+    -MESS
+    -access rwc
+    tb_FSM
+
+	Elaborating the design hierarchy:
+		Caching library 'work_lib' ....... Done
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		work_lib.FSM:module <0x48a53675>
+			streams:   5, words:  4307
+		work_lib.tb_FSM:module <0x567f7b4f>
+			streams:   5, words:  4277
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                 Instances  Unique
+		Modules:                 2       2
+		Registers:               6       6
+		Scalar wires:            4       -
+		Always blocks:           3       3
+		Initial blocks:          1       1
+		Cont. assignments:       1       1
+		Pseudo assignments:      3       3
+		Simulation timescale:  1ps
+	Writing initial simulation snapshot: work_lib.tb_FSM:module
+TOOL:	xmelab(64)	22.03-s012: Exiting on Jul 07, 2026 at 19:42:41 KST  (total: 00:00:01)

@@ -1,0 +1,116 @@
+#######################################################
+#                                                     
+#  Innovus Command Logging File                     
+#  Created on Thu Jul  9 07:07:55 2026                
+#                                                     
+#######################################################
+
+#@(#)CDS: Innovus v22.17-s086_1 (64bit) 09/24/2024 10:51 (Linux 3.10.0-693.el7.x86_64)
+#@(#)CDS: NanoRoute 22.17-s086_1 NR240905-1647/22_17-UB (database version 18.20.629) {superthreading v2.20}
+#@(#)CDS: AAE 22.17-s013 (64bit) 09/24/2024 (Linux 3.10.0-693.el7.x86_64)
+#@(#)CDS: CTE 22.17-s017_1 () Sep 12 2024 04:53:54 ( )
+#@(#)CDS: SYNTECH 22.17-s006_1 () Aug 12 2024 03:52:27 ( )
+#@(#)CDS: CPE v22.17-s051
+#@(#)CDS: IQuantus/TQuantus 21.2.2-s369 (64bit) Tue May 7 14:30:42 PDT 2024 (Linux 3.10.0-693.el7.x86_64)
+
+set_db init_power_nets VDD
+set_db init_ground_nets VSS
+read_mmmc ../0_SAMPLE/sample.view
+#@ Begin verbose source ../0_SAMPLE/sample.view (pre)
+create_library_set -name max_timing\
+   -timing ../../1_LIB/slow_vdd1v0_basicCells.lib
+create_library_set -name min_timing\
+   -timing ../../1_LIB/fast_vdd1v0_basicCells.lib
+create_timing_condition -name default_mapping_tc_2\
+   -library_sets min_timing
+create_timing_condition -name default_mapping_tc_1\
+   -library_sets max_timing
+create_rc_corner -name rccorners\
+   -cap_table ../../4_CAP_TABLE/cln28hpl_1p10m+alrdl_5x2yu2yz_typical.capTbl\
+   -pre_route_res 1\
+   -post_route_res 1\
+   -pre_route_cap 1\
+   -post_route_cap 1\
+   -post_route_cross_cap 1\
+   -pre_route_clock_res 0\
+   -pre_route_clock_cap 0\
+   -qrc_tech ../../5_QRC_TECH/gpdk045.tch
+create_delay_corner -name max_delay\
+   -timing_condition {default_mapping_tc_1}\
+   -rc_corner rccorners
+create_delay_corner -name min_delay\
+   -timing_condition {default_mapping_tc_2}\
+   -rc_corner rccorners
+create_constraint_mode -name sdc_cons\
+   -sdc_files\
+    ../../2_CONSTRAINTS/2_TINY_PROJECT/ls194_final.sdc
+create_analysis_view -name wc -constraint_mode sdc_cons -delay_corner max_delay
+create_analysis_view -name bc -constraint_mode sdc_cons -delay_corner min_delay
+set_analysis_view -setup wc -hold bc
+#@ End verbose source ../0_SAMPLE/sample.view
+create_clock_tree_spec
+ccopt_design
+gui_select -point {15.02300 3.31700}
+gui_select -point {15.13900 9.44800}
+set_db route_detail_fix_antenna 1
+set_db route_antenna_diode_insertion 0
+set_db route_with_timing_driven 1
+set_db route_with_eco 0
+set_db route_with_litho_driven 0
+set_db route_detail_post_route_litho_repair 0
+set_db route_with_si_driven 1
+set_db route_detail_auto_stop 0
+set_db route_selected_net_only 0
+set_db route_detail_end_iteration 1
+set_db route_with_timing_driven true
+set_db route_with_si_driven true
+route_design -global_detail -via_opt -wire_opt
+add_fillers -base_cells FILL8 FILL64 FILL4 FILL32 FILL2 FILL16 FILL1 -prefix FILLER
+set_db check_drc_disable_rules {}
+set_db check_drc_ndr_spacing auto
+set_db check_drc_check_only default
+set_db check_drc_inside_via_def true
+set_db check_drc_exclude_pg_net false
+set_db check_drc_ignore_trial_route false
+set_db check_drc_ignore_cell_blockage false
+set_db check_drc_use_min_spacing_on_block_obs auto
+set_db check_drc_report ls194.drc.rpt
+set_db check_drc_limit 1000
+check_drc
+set_db check_drc_area {0 0 0 0}
+check_connectivity -type all -geometry_connect -error 1000 -warning 50
+route_eco -target
+check_drc
+gui_select -point {14.14900 2.44250}
+set_db check_drc_disable_rules {}
+set_db check_drc_ndr_spacing auto
+set_db check_drc_check_only default
+set_db check_drc_inside_via_def true
+set_db check_drc_exclude_pg_net false
+set_db check_drc_ignore_trial_route false
+set_db check_drc_ignore_cell_blockage false
+set_db check_drc_use_min_spacing_on_block_obs auto
+set_db check_drc_report ls194.drc.rpt
+set_db check_drc_limit 1000
+check_drc
+set_db check_drc_area {0 0 0 0}
+check_connectivity -type all -geometry_connect -error 1000 -warning 50
+gui_select -point {-1.00500 9.11350}
+gui_select -point {-0.45250 8.97250}
+gui_select -point {6.91250 2.63600}
+gui_select -point {6.91250 2.67450}
+gui_select -point {6.91250 4.35800}
+gui_select -point {6.90400 7.78750}
+set_db check_drc_disable_rules {}
+set_db check_drc_ndr_spacing auto
+set_db check_drc_check_only default
+set_db check_drc_inside_via_def true
+set_db check_drc_exclude_pg_net false
+set_db check_drc_ignore_trial_route false
+set_db check_drc_ignore_cell_blockage false
+set_db check_drc_use_min_spacing_on_block_obs auto
+set_db check_drc_report ls194.drc.rpt
+set_db check_drc_limit 1000
+check_drc
+set_db check_drc_area {0 0 0 0}
+exit

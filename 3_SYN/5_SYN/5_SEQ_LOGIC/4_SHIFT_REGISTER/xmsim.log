@@ -1,0 +1,51 @@
+xmsim(64): 22.03-s012: (c) Copyright 1995-2023 Cadence Design Systems, Inc.
+TOOL:	xmsim(64)	22.03-s012: Started on Jul 06, 2026 at 23:00:35 KST
+xmsim
+    -MESS
+    tb_shift_register_sipo
+    -gui
+
+xmsim: *W,NOMTDGUI: Multi-Threaded Dumping is disabled for interactive debug mode.
+
+-------------------------------------
+Relinquished control to SimVision...
+xcelium> 
+xcelium> database -open waves -into waves.shm -default
+Created default SHM database waves
+xcelium> probe -create -shm tb_shift_register_sipo.rst_n tb_shift_register_sipo.clk tb_shift_register_sipo.i tb_shift_register_sipo.i_serial_in tb_shift_register_sipo.o_parallel_out tb_shift_register_sipo.random_bit
+Created probe 1
+xcelium> run
+time=0 | rst_n=0 | parallel_out=0  0
+time=15000 | rst_n=1 | parallel_out=0  0
+time=30000 | rst_n=1 | parallel_out=1  0
+time=35000 | rst_n=1 | parallel_out=1  1
+time=45000 | rst_n=1 | parallel_out=1  3
+time=55000 | rst_n=1 | parallel_out=1  7
+time=65000 | rst_n=1 | parallel_out=1 15
+time=75000 | rst_n=1 | parallel_out=1 31
+time=85000 | rst_n=1 | parallel_out=1 63
+time=90000 | rst_n=1 | parallel_out=0 63
+time=95000 | rst_n=1 | parallel_out=0126
+time=100000 | rst_n=1 | parallel_out=1126
+time=105000 | rst_n=1 | parallel_out=1253
+time=115000 | rst_n=1 | parallel_out=1251
+time=120000 | rst_n=1 | parallel_out=0251
+time=125000 | rst_n=1 | parallel_out=0246
+time=130000 | rst_n=1 | parallel_out=1246
+time=135000 | rst_n=1 | parallel_out=1237
+time=145000 | rst_n=1 | parallel_out=1219
+time=150000 | rst_n=1 | parallel_out=0219
+time=155000 | rst_n=1 | parallel_out=0182
+time=160000 | rst_n=1 | parallel_out=1182
+time=165000 | rst_n=1 | parallel_out=1109
+time=170000 | rst_n=1 | parallel_out=0109
+time=175000 | rst_n=1 | parallel_out=0218
+time=185000 | rst_n=1 | parallel_out=0180
+time=195000 | rst_n=1 | parallel_out=0104
+time=205000 | rst_n=1 | parallel_out=0208
+time=215000 | rst_n=1 | parallel_out=0160
+Simulation complete via $finish(1) at time 220 NS + 0
+./tb_shift_register_sipo.v:43     $finish;
+xcelium> ^C
+xcelium> exit
+TOOL:	xmsim(64)	22.03-s012: Exiting on Jul 06, 2026 at 23:41:15 KST  (total: 00:40:40)

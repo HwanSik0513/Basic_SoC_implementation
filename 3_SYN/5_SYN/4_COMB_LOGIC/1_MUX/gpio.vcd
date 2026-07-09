@@ -1,0 +1,60 @@
+$date
+    Jul  1, 2026  00:21:37
+$end
+$version
+    TOOL:	xmsim(64)	22.03-s012
+$end
+$timescale
+    1 ps
+$end
+
+$scope module tb_GPIO_MUX $end
+$var reg       2 !    i_sel [1:0] $end
+$var reg       1 "    i_tx0 $end
+$var reg       1 #    i_rx0 $end
+$var reg       1 $    i_pwm1 $end
+$var reg       1 %    i_peri0 $end
+$var wire      1 &    o_gpio_pin  $end
+
+$scope module dut $end
+$var wire      2 '    i_sel [1:0] $end
+$var wire      1 (    i_tx0  $end
+$var wire      1 )    i_rx0  $end
+$var wire      1 *    i_pwm1  $end
+$var wire      1 +    i_peri0  $end
+$var reg       1 ,    o_gpio_pin $end
+$upscope $end
+
+$upscope $end
+
+$enddefinitions $end
+$dumpvars
+b0 !
+0"
+1#
+0$
+1%
+0&
+b0 '
+0(
+1)
+0*
+1+
+0,
+$end
+#10000
+b1 !
+b1 '
+1,
+1&
+#20000
+b10 !
+b10 '
+0,
+0&
+#30000
+b11 !
+b11 '
+1,
+1&
+#40000
